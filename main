@@ -1,0 +1,15 @@
+local player = game.Players.LocalPlayer
+
+if not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") then
+    player.CharacterAdded:Wait()
+end
+
+--- grab humanoidrootpart position
+local position = player.Character.HumanoidRootPart.Position
+
+print("your coordinate position: " .. tostring(position)) ---shows position in console
+
+local messageBox = Instance.new("Message", game.Workspace)
+messageBox.Text = "your coordinate position: " .. tostring(position)
+wait(15) ---change 15 to whatever you want its in seconds
+messageBox:Destroy()
