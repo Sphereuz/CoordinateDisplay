@@ -1,0 +1,33 @@
+local player = game.Players.LocalPlayer
+
+if not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") then
+    player.CharacterAdded:Wait()
+end
+
+---obtain and display current coordinates
+local function displayCoordinates()
+    -- Ensure the HumanoidRootPart is present
+    if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        -- Grab the humanoid root part position
+        local position = player.Character.HumanoidRootPart.Position
+        
+---rounds coordinates
+        local roundedPosition = Vector3.new(
+            math.floor(position.X + 0.5),
+            math.floor(position.Y + 0.5),
+            math.floor(position.Z + 0.5)
+        )
+
+---show coordinates in console
+        print("your coordinate position: " .. tostring(roundedPosition))
+
+        -- Create a message box in the workspace
+        local messageBox = Instance.new("Message", game.Workspace)
+        messageBox.Text = "your coordinate position: " .. tostring(roundedPosition)
+
+        wait(15)  ---change 15 to second what you want 15 is 15 second
+        messageBox:Destroy()  ---makes it not cover you whole screen forever
+    end
+end
+
+displayCoordinates()
