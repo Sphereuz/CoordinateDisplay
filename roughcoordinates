@@ -6,9 +6,9 @@ end
 
 ---obtain and display current coordinates
 local function displayCoordinates()
-    -- Ensure the HumanoidRootPart is present
+    ---make sure humanoidrootpart is there so we can get its position
     if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-        -- Grab the humanoid root part position
+        ---gets position
         local position = player.Character.HumanoidRootPart.Position
         
 ---rounds coordinates
@@ -21,7 +21,6 @@ local function displayCoordinates()
 ---show coordinates in console
         print("your coordinate position: " .. tostring(roundedPosition))
 
-        -- Create a message box in the workspace
         local messageBox = Instance.new("Message", game.Workspace)
         messageBox.Text = "your coordinate position: " .. tostring(roundedPosition)
 
